@@ -36,13 +36,7 @@ export function TaskList() {
       isComplete: !task.isComplete,
     };
 
-    const newTasks: Task[] = [];
-
-    tasks.forEach(function (task, index) {
-      return task.id === newTask.id
-        ? newTasks.push(newTask)
-        : newTasks.push(task);
-    });
+    const newTasks = tasks.map((task) => (task.id === id ? newTask : task));
 
     setTasks(newTasks);
   }
